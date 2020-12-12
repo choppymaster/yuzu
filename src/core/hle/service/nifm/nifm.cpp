@@ -249,7 +249,7 @@ IGeneralService::IGeneralService(Core::System& system)
         {1, &IGeneralService::GetClientId, "GetClientId"},
         {2, &IGeneralService::CreateScanRequest, "CreateScanRequest"},
         {4, &IGeneralService::CreateRequest, "CreateRequest"},
-        {5, nullptr, "GetCurrentNetworkProfile"},
+        {5, &IGeneralService::GetCurrentNetworkProfile, "GetCurrentNetworkProfile"},
         {6, nullptr, "EnumerateNetworkInterfaces"},
         {7, nullptr, "EnumerateNetworkProfiles"},
         {8, nullptr, "GetNetworkProfile"},
@@ -314,6 +314,14 @@ public:
     }
 
     void CreateGeneralService(Kernel::HLERequestContext& ctx) {
+        LOG_DEBUG(Service_NIFM, "called");
+
+        IPC::ResponseBuilder rb{ctx, 2, 0, 1};
+        rb.Push(RESULT_SUCCESS);
+        rb.PushIpcInterface<IGeneralService>(system);
+    }
+    
+    void CreateGeneralService (Kernel::HLERequestContext& ctx) {
         LOG_DEBUG(Service_NIFM, "called");
 
         IPC::ResponseBuilder rb{ctx, 2, 0, 1};
