@@ -1196,7 +1196,7 @@ IApplicationFunctions::IApplicationFunctions(Core::System& system_)
         {124, nullptr, "EnableApplicationAllThreadDumpOnCrash"},
         {130, &IApplicationFunctions::GetGpuErrorDetectedSystemEvent, "GetGpuErrorDetectedSystemEvent"},
         {140, &IApplicationFunctions::GetFriendInvitationStorageChannelEvent, "GetFriendInvitationStorageChannelEvent"},
-        {141, nullptr, "TryPopFromFriendInvitationStorageChannel"},
+        {141, &IApplicationFunctions::TryPopFromFriendInvitationStorageChannel, "TryPopFromFriendInvitationStorageChannel"},
         {150, nullptr, "GetNotificationStorageChannelEvent"},
         {151, nullptr, "TryPopFromNotificationStorageChannel"},
         {160, nullptr, "GetHealthWarningDisappearedSystemEvent"},
